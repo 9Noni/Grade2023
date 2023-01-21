@@ -1,0 +1,22 @@
+secrets = openai_secret_manager.get_secrets("twitter")
+consumer_key = secrets["consumer_key"]
+consumer_secret = secrets["consumer_secret"]
+access_token = secrets["access_token"]
+access_token_secret = secrets["access_token_secret"]
+
+# Import the Tweepy library
+import tweepy
+
+# Authenticate with the Twitter API using the keys obtained from the OpenAI Secret Manager
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tweepy.API(auth)
+
+# Get the user's Twitter handle
+handle = input("Enter the Twitter handle of the account you want to check: ")
+
+# Get the user's information
+user = api.get_user(handle)
+
+# Print the number of followers
+print(f"{handle} has {user.followers_count} followers.")
