@@ -4,7 +4,7 @@ consumer_secret = secrets["consumer_secret"]
 access_token = secrets["access_token"]
 access_token_secret = secrets["access_token_secret"]
 
-# Import the Tweepy library
+# Import the Tweepy library -secret
 import tweepy
 
 # Authenticate with the Twitter API using the keys obtained from the OpenAI Secret Manager
